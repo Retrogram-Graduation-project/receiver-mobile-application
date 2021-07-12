@@ -1,7 +1,9 @@
 import 'dart:io';
+import 'dart:math';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:nearby_connections/nearby_connections.dart';
+import 'package:photo_view/photo_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -69,9 +71,17 @@ class _MyBodyState extends State<Body> {
 
   @override
   void initState() {
+    controller = PhotoViewController(initialScale: 0.1);
     discover();
     super.initState();
   }
+
+  double min = pi * -2;
+  double max = pi * 2;
+
+  double minScale = 0.03;
+  double defScale = 0.1;
+  double maxScale = 0.6;
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +110,19 @@ class _MyBodyState extends State<Body> {
               Center(
                 child: Text(txt!),
               ),
-            if (filePath != null) Image.file(File(filePath!)),
+            if (filePath != null)
+              Container(
+                width: 400,
+                height: 500,
+                child: PhotoView(
+                  imageProvider: FileImage(File(filePath!)),
+                  controller: controller,
+                  enableRotation: true,
+                  initialScale: minScale * 1.5,
+                  minScale: minScale,
+                  maxScale: maxScale,
+                ),
+              ),
             SizedBox(height: 30),
           ],
         ),
@@ -109,9 +131,9 @@ class _MyBodyState extends State<Body> {
   }
 
   void showSnackbar(dynamic a) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text(a.toString()),
-    ));
+    // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    //   content: Text(a.toString()),
+    // ));
   }
 
   Future<bool> moveFile(String uri, String fileName) async {
@@ -130,6 +152,9 @@ class _MyBodyState extends State<Body> {
 
   String? txt;
   String? filePath;
+  double? scale;
+  double? rotation;
+  PhotoViewControllerBase? controller;
 
   /// Called upon Connection request (on both devices)
   /// Both need to accept connection to start sending/receiving
@@ -144,13 +169,20 @@ class _MyBodyState extends State<Body> {
           String str = String.fromCharCodes(payload.bytes!);
           showSnackbar(endid + ": " + str);
 
+          String checker = str.substring(0, 4);
+          print(checker);
           setState(() {
-            txt = str;
-            filePath = null;
-            print("####### $txt");
+            if (checker == "s45:")
+              controller!.scale = double.parse(str.split(":")[1]);
+            else if (checker == "r45:")
+              controller!.rotation = double.parse(str.split(":")[1]);
+            else {
+              txt = str;
+              filePath = null;
+            }
           });
 
-          if (str.contains(':')) {
+          if (str.contains(':') && checker != "s45:" && checker != "r45:") {
             // used for file payload as file payload is mapped as
             // payloadId:filename
             int payloadId = int.parse(str.split(':')[0]);

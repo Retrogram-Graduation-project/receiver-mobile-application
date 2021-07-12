@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-gl/values-gl.xml",
+            "outputFile": "/home/wael/Documents/projects/receiver-mobile-application/receiver_app/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-gl/values-gl.xml",
             "map": [
                 {
                     "source": "/home/wael/.gradle/caches/transforms-2/files-2.1/861ae1c6d8e5444f0459ae8b39987179/jetified-play-services-basement-17.5.0/res/values-gl/values.xml",

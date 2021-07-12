@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rGB/values-en-rGB.xml",
+            "outputFile": "/home/wael/Documents/projects/receiver-mobile-application/receiver_app/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rGB/values-en-rGB.xml",
             "map": [
                 {
                     "source": "/home/wael/.gradle/caches/transforms-2/files-2.1/a23fd013e31a2c5a009c6b0dca02afba/jetified-play-services-base-17.5.0/res/values-en-rGB/values.xml",

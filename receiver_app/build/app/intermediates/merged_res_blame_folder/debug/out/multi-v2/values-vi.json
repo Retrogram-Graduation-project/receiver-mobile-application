@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-vi/values-vi.xml",
+            "outputFile": "/home/wael/Documents/projects/receiver-mobile-application/receiver_app/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-vi/values-vi.xml",
             "map": [
                 {
                     "source": "/home/wael/.gradle/caches/transforms-2/files-2.1/544eab86e7823cb4f6f6bbcd34094c52/core-1.2.0/res/values-vi/values-vi.xml",

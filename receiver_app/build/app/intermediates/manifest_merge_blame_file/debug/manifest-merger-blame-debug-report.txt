@@ -12,60 +12,60 @@
 12         to allow setting breakpoints, to provide hot reload, etc.
 13    -->
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/debug/AndroidManifest.xml:6:5-66
-14-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/debug/AndroidManifest.xml:6:22-64
+14-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/debug/AndroidManifest.xml:6:5-66
+14-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/debug/AndroidManifest.xml:6:22-64
 15    <!-- Required for Nearby Connections -->
 16    <uses-permission android:name="android.permission.BLUETOOTH" />
-16-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:5:3-65
-16-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:5:20-63
+16-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:5:3-65
+16-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:5:20-63
 17    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-17-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:6:3-71
-17-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:6:20-69
+17-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:6:3-71
+17-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:6:20-69
 18    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-18-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:7:3-73
-18-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:7:20-71
+18-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:7:3-73
+18-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:7:20-71
 19    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-19-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:8:3-73
-19-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:8:20-71
+19-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:8:3-73
+19-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:8:20-71
 20    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-20-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:9:3-78
-20-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:9:20-76
+20-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:9:3-78
+20-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:9:20-76
 21    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Optional: only required for FILE payloads -->
-21-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:10:3-76
-21-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:10:20-74
+21-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:10:3-76
+21-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:10:20-74
 22    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-22-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:12:3-77
-22-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:12:20-75
+22-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:12:3-77
+22-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:12:20-75
 23    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-23-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:13:3-78
-23-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:13:20-76
+23-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:13:3-78
+23-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:13:20-76
 24    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 24-->[com.google.android.gms:play-services-nearby:18.0.0] /home/wael/.gradle/caches/transforms-2/files-2.1/b9be5e9a3550ba2dc847fcb78857a7c1/jetified-play-services-nearby-18.0.0/AndroidManifest.xml:7:5-79
 24-->[com.google.android.gms:play-services-nearby:18.0.0] /home/wael/.gradle/caches/transforms-2/files-2.1/b9be5e9a3550ba2dc847fcb78857a7c1/jetified-play-services-nearby-18.0.0/AndroidManifest.xml:7:22-76
 25
 26    <application
-26-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:15:4-52:19
+26-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:15:4-52:19
 27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 27-->[androidx.core:core:1.2.0] /home/wael/.gradle/caches/transforms-2/files-2.1/544eab86e7823cb4f6f6bbcd34094c52/core-1.2.0/AndroidManifest.xml:24:18-86
 28        android:debuggable="true"
 29        android:icon="@mipmap/ic_launcher"
-29-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:17:9-43
+29-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:17:9-43
 30        android:label="receiver_mobile_application" >
-30-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:16:9-52
+30-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:16:9-52
 31        <activity
-31-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:18:9-46:20
+31-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:18:9-46:20
 32            android:name="com.example.receiver_mobile_application.MainActivity"
-32-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:19:13-41
+32-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:19:13-41
 33            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-33-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:22:13-163
+33-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:22:13-163
 34            android:hardwareAccelerated="true"
-34-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:23:13-47
+34-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:23:13-47
 35            android:launchMode="singleTop"
-35-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:20:13-43
+35-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:20:13-43
 36            android:theme="@style/LaunchTheme"
-36-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:21:13-47
+36-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:21:13-47
 37            android:windowSoftInputMode="adjustResize" >
-37-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:24:13-55
+37-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:24:13-55
 38
 39            <!--
 40                 Specifies an Android theme to apply to this Activity as soon as
@@ -74,11 +74,11 @@
 43                 to determine the Window background behind the Flutter UI.
 44            -->
 45            <meta-data
-45-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:29:13-32:17
+45-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:29:13-32:17
 46                android:name="io.flutter.embedding.android.NormalTheme"
-46-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:30:15-70
+46-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:30:15-70
 47                android:resource="@style/NormalTheme" />
-47-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:31:15-52
+47-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:31:15-52
 48            <!--
 49                 Displays an Android View that continues showing the launch screen
 50                 Drawable until Flutter paints its first frame, then this splash
@@ -87,21 +87,21 @@
 53                 Flutter's first frame.
 54            -->
 55            <meta-data
-55-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:38:13-41:17
+55-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:38:13-41:17
 56                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-56-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:39:15-79
+56-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:39:15-79
 57                android:resource="@drawable/launch_background" />
-57-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:40:15-61
+57-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:40:15-61
 58
 59            <intent-filter>
-59-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:42:13-45:29
+59-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:42:13-45:29
 60                <action android:name="android.intent.action.MAIN" />
-60-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:43:17-68
-60-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:43:25-66
+60-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:43:17-68
+60-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:43:25-66
 61
 62                <category android:name="android.intent.category.LAUNCHER" />
-62-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:44:17-76
-62-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:44:27-74
+62-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:44:17-76
+62-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:44:27-74
 63            </intent-filter>
 64        </activity>
 65        <!--
@@ -109,11 +109,11 @@
 67             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
 68        -->
 69        <meta-data
-69-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:49:9-51:33
+69-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:49:9-51:33
 70            android:name="flutterEmbedding"
-70-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:50:13-44
+70-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:50:13-44
 71            android:value="2" />
-71-->/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/AndroidManifest.xml:51:13-30
+71-->/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/AndroidManifest.xml:51:13-30
 72
 73        <activity
 73-->[com.google.android.gms:play-services-base:17.5.0] /home/wael/.gradle/caches/transforms-2/files-2.1/a23fd013e31a2c5a009c6b0dca02afba/jetified-play-services-base-17.5.0/AndroidManifest.xml:23:9-26:75

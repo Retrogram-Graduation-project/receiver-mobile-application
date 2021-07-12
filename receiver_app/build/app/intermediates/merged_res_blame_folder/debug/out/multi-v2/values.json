@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/home/wael/Documents/projects/receiver-mobile-application/receiver_app/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
                 {
                     "source": "/home/wael/.gradle/caches/transforms-2/files-2.1/a23fd013e31a2c5a009c6b0dca02afba/jetified-play-services-base-17.5.0/res/values/values.xml",
@@ -20,25 +20,6 @@
                         "endLines": "2,3,4,5,6,7,8,9,86,87,88,89,90,91,92,93,95,96,97,98,99,100,101,102,103,264,283",
                         "endColumns": "89,79,89,89,79,80,79,79,104,180,124,106,179,122,115,102,187,104,180,124,174,147,62,61,78,20,20",
                         "endOffsets": "190,270,360,450,530,611,691,771,5497,5678,5803,5910,6090,6213,6329,6432,6787,6892,7073,7198,7373,7521,7584,7646,7725,16880,17297"
-                    }
-                },
-                {
-                    "source": "/home/wael/Documents/projects/sender-mobile-application/receiver_mobile_application/android/app/src/main/res/values/styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "173,816",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "465,980"
-                    },
-                    "to": {
-                        "startLines": "105,110",
-                        "startColumns": "4,4",
-                        "startOffsets": "7801,8098",
-                        "endLines": "109,112",
-                        "endColumns": "12,12",
-                        "endOffsets": "8093,8262"
                     }
                 },
                 {
@@ -75,6 +56,25 @@
                         "startOffsets": "5259,6437",
                         "endColumns": "67,166",
                         "endOffsets": "5322,6599"
+                    }
+                },
+                {
+                    "source": "/home/wael/Documents/projects/receiver-mobile-application/receiver_app/android/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "173,816",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "465,980"
+                    },
+                    "to": {
+                        "startLines": "105,110",
+                        "startColumns": "4,4",
+                        "startOffsets": "7801,8098",
+                        "endLines": "109,112",
+                        "endColumns": "12,12",
+                        "endOffsets": "8093,8262"
                     }
                 }
             ]
