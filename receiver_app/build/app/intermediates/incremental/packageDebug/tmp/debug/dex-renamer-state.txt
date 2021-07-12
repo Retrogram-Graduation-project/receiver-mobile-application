@@ -1,4 +1,4 @@
-#Mon Jul 12 18:45:11 EET 2021
+#Mon Jul 12 19:17:52 EET 2021
 base.0=/home/wael/Documents/projects/receiver-mobile-application/receiver_app/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

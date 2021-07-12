@@ -171,7 +171,7 @@ class _MyBodyState extends State<Body> {
 
           String checker = "";
           try {
-            String checker = str.substring(0, 4);
+            checker = str.substring(0, 4);
             print(checker);
             setState(() {
               if (checker == "s45:")
