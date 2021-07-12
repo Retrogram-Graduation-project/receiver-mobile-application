@@ -169,18 +169,28 @@ class _MyBodyState extends State<Body> {
           String str = String.fromCharCodes(payload.bytes!);
           showSnackbar(endid + ": " + str);
 
-          String checker = str.substring(0, 4);
-          print(checker);
-          setState(() {
-            if (checker == "s45:")
-              controller!.scale = double.parse(str.split(":")[1]);
-            else if (checker == "r45:")
-              controller!.rotation = double.parse(str.split(":")[1]);
-            else {
+          String checker = "";
+          try {
+            String checker = str.substring(0, 4);
+            print(checker);
+            setState(() {
+              if (checker == "s45:")
+                controller!.scale = double.parse(str.split(":")[1]);
+              else if (checker == "r45:")
+                controller!.rotation = double.parse(str.split(":")[1]);
+              else {
+                txt = str;
+                filePath = null;
+                controller = PhotoViewController(initialScale: 0.1);
+              }
+            });
+          } catch (e) {
+            setState(() {
               txt = str;
               filePath = null;
-            }
-          });
+              controller = PhotoViewController(initialScale: 0.1);
+            });
+          }
 
           if (str.contains(':') && checker != "s45:" && checker != "r45:") {
             // used for file payload as file payload is mapped as
