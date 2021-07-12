@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/wael/Documents/projects/receiver-mobile-application/receiver_app/build/nearby_connections/intermediates/res/merged/release/color/common_google_signin_btn_text_dark.xml",
+        "source": "/home/wael/.gradle/caches/transforms-2/files-2.1/a23fd013e31a2c5a009c6b0dca02afba/jetified-play-services-base-17.5.0/res/color/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/home/wael/Documents/projects/receiver-mobile-application/receiver_app/build/nearby_connections/intermediates/res/merged/release/color/common_google_signin_btn_text_light.xml",
+        "source": "/home/wael/.gradle/caches/transforms-2/files-2.1/a23fd013e31a2c5a009c6b0dca02afba/jetified-play-services-base-17.5.0/res/color/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/home/wael/Documents/projects/receiver-mobile-application/receiver_app/build/nearby_connections/intermediates/res/merged/release/color/common_google_signin_btn_tint.xml",
+        "source": "/home/wael/.gradle/caches/transforms-2/files-2.1/a23fd013e31a2c5a009c6b0dca02afba/jetified-play-services-base-17.5.0/res/color/common_google_signin_btn_tint.xml"
+    }
+]

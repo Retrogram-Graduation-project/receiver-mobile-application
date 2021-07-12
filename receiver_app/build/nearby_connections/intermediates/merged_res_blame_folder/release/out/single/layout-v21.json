@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/wael/Documents/projects/receiver-mobile-application/receiver_app/build/nearby_connections/intermediates/res/merged/release/layout-v21/notification_template_custom_big.xml",
+        "source": "/home/wael/.gradle/caches/transforms-2/files-2.1/544eab86e7823cb4f6f6bbcd34094c52/core-1.2.0/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/home/wael/Documents/projects/receiver-mobile-application/receiver_app/build/nearby_connections/intermediates/res/merged/release/layout-v21/notification_template_icon_group.xml",
+        "source": "/home/wael/.gradle/caches/transforms-2/files-2.1/544eab86e7823cb4f6f6bbcd34094c52/core-1.2.0/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/home/wael/Documents/projects/receiver-mobile-application/receiver_app/build/nearby_connections/intermediates/res/merged/release/layout-v21/notification_action_tombstone.xml",
+        "source": "/home/wael/.gradle/caches/transforms-2/files-2.1/544eab86e7823cb4f6f6bbcd34094c52/core-1.2.0/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/home/wael/Documents/projects/receiver-mobile-application/receiver_app/build/nearby_connections/intermediates/res/merged/release/layout-v21/notification_action.xml",
+        "source": "/home/wael/.gradle/caches/transforms-2/files-2.1/544eab86e7823cb4f6f6bbcd34094c52/core-1.2.0/res/layout-v21/notification_action.xml"
+    }
+]
