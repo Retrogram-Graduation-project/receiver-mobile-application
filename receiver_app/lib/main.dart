@@ -33,7 +33,7 @@ class Body extends StatefulWidget {
 
 class _MyBodyState extends State<Body> {
   final String userName = "Retro the first";
-  final Strategy strategy = Strategy.P2P_STAR;
+  final Strategy strategy = Strategy.P2P_POINT_TO_POINT;
   Map<String, ConnectionInfo> endpointMap = Map();
 
   String? tempFileUri; //reference to the file currently being transferred
@@ -59,6 +59,8 @@ class _MyBodyState extends State<Body> {
             setState(() {
               endpointMap.remove(id);
             });
+            print("Stopping advertising");
+            Nearby().stopAdvertising();
             discover();
           },
         );
@@ -99,9 +101,11 @@ class _MyBodyState extends State<Body> {
               child: Text("Disconnect sender"),
               onPressed: () async {
                 await Nearby().stopAllEndpoints();
+                await Nearby().stopAdvertising();
                 setState(() {
                   endpointMap.clear();
                 });
+                discover();
               },
             ),
             Divider(),
