@@ -1,5 +1,7 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
+import 'dart:ui';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:nearby_connections/nearby_connections.dart';
@@ -26,6 +28,47 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
+class DrawingArea {
+  Offset point;
+  Paint areaPaint;
+
+  Map<String, dynamic> toJson() {
+    Map<String, dynamic> ret = {};
+    Map<String, String> p = {
+      '"direction"': '"${point.direction.toString()}"',
+      '"distance"': '"${point.distance.toString()}"',
+      '"distanceSquared"': '"${point.distanceSquared.toString()}"',
+      '"dx"': '"${point.dx.toString()}"',
+      '"dy"': '"${point.dy.toString()}"',
+      '"isFinite"': '"${point.isFinite.toString()}"',
+      '"isInfinite"': '"${point.isInfinite.toString()}"',
+    };
+
+    Map<String, String> a = {
+      '"color"': '"${areaPaint.color.toString()}"',
+      '"strokeWidth"': '"${areaPaint.strokeWidth.toString()}"',
+    };
+    ret['"point"'] = p;
+    ret['"areaPaint"'] = a;
+    return ret;
+  }
+
+  DrawingArea.fromMap(Map<String, dynamic> data) {
+    point = Offset(
+        double.parse(data['point']['dx']), double.parse(data['point']['dy']));
+    areaPaint = Paint();
+
+    String c = data['areaPaint']['color'];
+    String colorData = c.substring(6, c.length - 1);
+    print(colorData);
+    Color color = Color(int.parse(colorData));
+    areaPaint.color = color;
+    areaPaint.strokeWidth = double.parse(data['areaPaint']['strokeWidth']);
+  }
+
+  DrawingArea({this.point, this.areaPaint});
+}
+
 class Body extends StatefulWidget {
   @override
   _MyBodyState createState() => _MyBodyState();
@@ -36,7 +79,7 @@ class _MyBodyState extends State<Body> {
   final Strategy strategy = Strategy.P2P_POINT_TO_POINT;
   Map<String, ConnectionInfo> endpointMap = Map();
 
-  String? tempFileUri; //reference to the file currently being transferred
+  String tempFileUri; //reference to the file currently being transferred
   Map<int, String> map =
       Map(); //store filename mapped to corresponding payloadId
 
@@ -55,7 +98,7 @@ class _MyBodyState extends State<Body> {
           },
           onDisconnected: (id) {
             showSnackbar(
-                "Disconnected: ${endpointMap[id]!.endpointName}, id $id");
+                "Disconnected: ${endpointMap[id].endpointName}, id $id");
             setState(() {
               endpointMap.remove(id);
             });
@@ -74,6 +117,7 @@ class _MyBodyState extends State<Body> {
   @override
   void initState() {
     controller = PhotoViewController(initialScale: 0.1);
+    points = [];
     discover();
     super.initState();
   }
@@ -112,19 +156,27 @@ class _MyBodyState extends State<Body> {
             SizedBox(height: 20),
             if (txt != null)
               Center(
-                child: Text(txt!),
+                child: Text(txt),
               ),
             if (filePath != null)
               Container(
                 width: 400,
                 height: 500,
                 child: PhotoView(
-                  imageProvider: FileImage(File(filePath!)),
+                  imageProvider: FileImage(File(filePath)),
                   controller: controller,
                   enableRotation: true,
                   initialScale: minScale * 1.5,
                   minScale: minScale,
                   maxScale: maxScale,
+                ),
+              ),
+            if (points.isNotEmpty)
+              Container(
+                height: 500,
+                width: 500,
+                child: CustomPaint(
+                  painter: MyCustomPainter(points: points),
                 ),
               ),
             SizedBox(height: 30),
@@ -141,24 +193,26 @@ class _MyBodyState extends State<Body> {
   }
 
   Future<bool> moveFile(String uri, String fileName) async {
-    String parentDir = (await getExternalStorageDirectory())!.absolute.path;
+    String parentDir = (await getExternalStorageDirectory()).absolute.path;
     final b =
         await Nearby().copyFileAndDeleteOriginal(uri, '$parentDir/$fileName');
 
     setState(() {
       filePath = "$parentDir/$fileName";
       txt = null;
+      points = [];
       print("##### $filePath");
     });
     showSnackbar("Moved file:" + b.toString());
     return b;
   }
 
-  String? txt;
-  String? filePath;
-  double? scale;
-  double? rotation;
-  PhotoViewControllerBase? controller;
+  String txt;
+  String filePath;
+  double scale;
+  double rotation;
+  PhotoViewControllerBase controller;
+  List<DrawingArea> points;
 
   /// Called upon Connection request (on both devices)
   /// Both need to accept connection to start sending/receiving
@@ -170,7 +224,7 @@ class _MyBodyState extends State<Body> {
       id,
       onPayLoadRecieved: (endid, payload) async {
         if (payload.type == PayloadType.BYTES) {
-          String str = String.fromCharCodes(payload.bytes!);
+          String str = String.fromCharCodes(payload.bytes);
           showSnackbar(endid + ": " + str);
 
           String checker = "";
@@ -179,24 +233,45 @@ class _MyBodyState extends State<Body> {
             print(checker);
             setState(() {
               if (checker == "s45:")
-                controller!.scale = double.parse(str.split(":")[1]);
+                controller.scale = double.parse(str.split(":")[1]);
               else if (checker == "r45:")
-                controller!.rotation = double.parse(str.split(":")[1]);
-              else {
+                controller.rotation = double.parse(str.split(":")[1]);
+              else if (checker == "p45:") {
+                List<String> jsons = str.split("\n");
+                points = [];
+                for (int i = 1; i < jsons.length; i++) {
+                  if (jsons[i].contains("null")) {
+                    setState(() {
+                      points.add(null);
+                    });
+                    continue;
+                  }
+                  Map<String, dynamic> js = json.decode(jsons[i]);
+                  setState(() {
+                    points.add(DrawingArea.fromMap(js));
+                  });
+                }
+              } else {
                 txt = str;
                 filePath = null;
                 controller = PhotoViewController(initialScale: 0.1);
+                points = [];
               }
             });
           } catch (e) {
             setState(() {
+              print(e);
               txt = str;
               filePath = null;
               controller = PhotoViewController(initialScale: 0.1);
+              points = [];
             });
           }
 
-          if (str.contains(':') && checker != "s45:" && checker != "r45:") {
+          if (str.contains(':') &&
+              checker != "s45:" &&
+              checker != "r45:" &&
+              checker != "p45:") {
             // used for file payload as file payload is mapped as
             // payloadId:filename
             int payloadId = int.parse(str.split(':')[0]);
@@ -204,7 +279,7 @@ class _MyBodyState extends State<Body> {
 
             if (map.containsKey(payloadId)) {
               if (tempFileUri != null) {
-                moveFile(tempFileUri!, fileName);
+                moveFile(tempFileUri, fileName);
               } else {
                 showSnackbar("File doesn't exist");
               }
@@ -230,8 +305,8 @@ class _MyBodyState extends State<Body> {
 
           if (map.containsKey(payloadTransferUpdate.id)) {
             //rename the file now
-            String name = map[payloadTransferUpdate.id]!;
-            moveFile(tempFileUri!, name);
+            String name = map[payloadTransferUpdate.id];
+            moveFile(tempFileUri, name);
           } else {
             //bytes not received till yet
             map[payloadTransferUpdate.id] = "";
@@ -240,4 +315,31 @@ class _MyBodyState extends State<Body> {
       },
     );
   }
+}
+
+class MyCustomPainter extends CustomPainter {
+  List<DrawingArea> points;
+
+  MyCustomPainter({@required this.points});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint background = Paint()..color = Colors.white;
+    Rect rect = Rect.fromLTWH(0, 0, size.width, size.height);
+    canvas.drawRect(rect, background);
+    canvas.clipRect(rect);
+    print("Paint");
+    for (int x = 0; x < points.length - 1; x++) {
+      if (points[x] != null && points[x + 1] != null) {
+        canvas.drawLine(
+            points[x].point, points[x + 1].point, points[x].areaPaint);
+      } else if (points[x] != null && points[x + 1] == null) {
+        canvas.drawPoints(
+            PointMode.points, [points[x].point], points[x].areaPaint);
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(MyCustomPainter oldDelegate) => true;
 }
