@@ -53,17 +53,18 @@ class DrawingArea {
     return ret;
   }
 
-  DrawingArea.fromMap(Map<String, dynamic> data) {
-    point = Offset(
-        double.parse(data['point']['dx']), double.parse(data['point']['dy']));
+  DrawingArea.fromMap(String data) {
+    List<dynamic> d = data.split(',');
+
+    point = Offset(double.parse(d[0]), double.parse(d[1]));
     areaPaint = Paint();
 
-    String c = data['areaPaint']['color'];
+    String c = d[2];
     String colorData = c.substring(6, c.length - 1);
     print(colorData);
     Color color = Color(int.parse(colorData));
     areaPaint.color = color;
-    areaPaint.strokeWidth = double.parse(data['areaPaint']['strokeWidth']);
+    areaPaint.strokeWidth = double.parse(d[3]);
   }
 
   DrawingArea({this.point, this.areaPaint});
@@ -240,16 +241,14 @@ class _MyBodyState extends State<Body> {
                 List<String> jsons = str.split("\n");
                 points = [];
                 for (int i = 1; i < jsons.length; i++) {
-                  if (jsons[i].contains("null")) {
+                  if (jsons[i].contains("null"))
                     setState(() {
                       points.add(null);
                     });
-                    continue;
-                  }
-                  Map<String, dynamic> js = json.decode(jsons[i]);
-                  setState(() {
-                    points.add(DrawingArea.fromMap(js));
-                  });
+                  else
+                    setState(() {
+                      points.add(DrawingArea.fromMap(jsons[i]));
+                    });
                 }
               } else {
                 txt = str;
