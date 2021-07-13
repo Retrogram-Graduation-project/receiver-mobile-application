@@ -32,27 +32,6 @@ class DrawingArea {
   Offset point;
   Paint areaPaint;
 
-  Map<String, dynamic> toJson() {
-    Map<String, dynamic> ret = {};
-    Map<String, String> p = {
-      '"direction"': '"${point.direction.toString()}"',
-      '"distance"': '"${point.distance.toString()}"',
-      '"distanceSquared"': '"${point.distanceSquared.toString()}"',
-      '"dx"': '"${point.dx.toString()}"',
-      '"dy"': '"${point.dy.toString()}"',
-      '"isFinite"': '"${point.isFinite.toString()}"',
-      '"isInfinite"': '"${point.isInfinite.toString()}"',
-    };
-
-    Map<String, String> a = {
-      '"color"': '"${areaPaint.color.toString()}"',
-      '"strokeWidth"': '"${areaPaint.strokeWidth.toString()}"',
-    };
-    ret['"point"'] = p;
-    ret['"areaPaint"'] = a;
-    return ret;
-  }
-
   DrawingArea.fromMap(String data) {
     List<dynamic> d = data.split(',');
 
@@ -239,17 +218,19 @@ class _MyBodyState extends State<Body> {
                 controller.rotation = double.parse(str.split(":")[1]);
               else if (checker == "p45:") {
                 List<String> jsons = str.split("\n");
-                points = [];
-                for (int i = 1; i < jsons.length; i++) {
-                  if (jsons[i].contains("null"))
-                    setState(() {
-                      points.add(null);
-                    });
-                  else
-                    setState(() {
-                      points.add(DrawingArea.fromMap(jsons[i]));
-                    });
-                }
+
+                if (jsons[1].contains("delete"))
+                  setState(() {
+                    points.clear();
+                  });
+                else if (jsons[1].contains("null"))
+                  setState(() {
+                    points.add(null);
+                  });
+                else
+                  setState(() {
+                    points.add(DrawingArea.fromMap(jsons[1]));
+                  });
               } else {
                 txt = str;
                 filePath = null;
