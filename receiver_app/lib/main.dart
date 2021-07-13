@@ -34,7 +34,6 @@ class DrawingArea {
 
   DrawingArea.fromMap(String data) {
     List<dynamic> d = data.split(',');
-
     point = Offset(double.parse(d[0]), double.parse(d[1]));
     areaPaint = Paint();
 
