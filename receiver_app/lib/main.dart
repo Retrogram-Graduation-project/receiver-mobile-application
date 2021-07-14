@@ -1,11 +1,11 @@
-import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
-import 'dart:ui';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:nearby_connections/nearby_connections.dart';
 import 'package:photo_view/photo_view.dart';
+import 'package:receiver_mobile_application/drawing_area.dart';
+import 'custom_painter.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,26 +26,6 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
-}
-
-class DrawingArea {
-  Offset point;
-  Paint areaPaint;
-
-  DrawingArea.fromMap(String data) {
-    List<dynamic> d = data.split(',');
-    point = Offset(double.parse(d[0]), double.parse(d[1]));
-    areaPaint = Paint();
-
-    String c = d[2];
-    String colorData = c.substring(6, c.length - 1);
-    print(colorData);
-    Color color = Color(int.parse(colorData));
-    areaPaint.color = color;
-    areaPaint.strokeWidth = double.parse(d[3]);
-  }
-
-  DrawingArea({this.point, this.areaPaint});
 }
 
 class Body extends StatefulWidget {
@@ -294,31 +274,4 @@ class _MyBodyState extends State<Body> {
       },
     );
   }
-}
-
-class MyCustomPainter extends CustomPainter {
-  List<DrawingArea> points;
-
-  MyCustomPainter({@required this.points});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint background = Paint()..color = Colors.white;
-    Rect rect = Rect.fromLTWH(0, 0, size.width, size.height);
-    canvas.drawRect(rect, background);
-    canvas.clipRect(rect);
-    print("Paint");
-    for (int x = 0; x < points.length - 1; x++) {
-      if (points[x] != null && points[x + 1] != null) {
-        canvas.drawLine(
-            points[x].point, points[x + 1].point, points[x].areaPaint);
-      } else if (points[x] != null && points[x + 1] == null) {
-        canvas.drawPoints(
-            PointMode.points, [points[x].point], points[x].areaPaint);
-      }
-    }
-  }
-
-  @override
-  bool shouldRepaint(MyCustomPainter oldDelegate) => true;
 }
